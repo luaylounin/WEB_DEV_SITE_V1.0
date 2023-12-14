@@ -1,0 +1,57 @@
+
+#brand {
+  font-weight: 600;
+  color: #9fafca;
+  font-style: italic;
+  font-family: 'Monaco', monospace;
+  font-size: 40px
+}
+
+#adminSection {
+  padding: 15px;
+  border: 1px solid #34495e;
+  background-color: white;
+  border-radius: 20px;
+}
+#headerSection {
+background-color: #0e387a;
+}
+
+#filterSection {
+  
+    background-color: #f8f9fa;
+    position: fixed;
+    max-height: 70%;
+    top: 200px;
+    bottom: auto;
+    left: 0;
+    width: 13%;
+    padding: 10px;
+    overflow-y: auto;
+  
+}
+
+#bodySection {
+  margin-left: 200px;
+  width: 90%;
+}
+
+#component {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#laptop {
+  border: 1px solid #0e387a;
+}
+
+#orders{
+  border: 1px solid #0e387a;
+  padding: 30px;
+}
+
+
+#title{
+  color:#0e387a;
+}
