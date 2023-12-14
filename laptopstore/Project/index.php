@@ -14,6 +14,7 @@
 
         // get unique Brands
         $uniqueBrands = array_unique(array_column($laptops, 'brand'));
+
         // Get unique RAMs
         $uniqueRAMs = array_unique(array_column($laptops, 'ram'));
 
@@ -140,23 +141,33 @@
                         <a href="routes/sign-in.php"><h5> <i class="fa fa-user"></i> Log in</h5></a>
                     </div>
                     <div class="col-md-2">
-                        <a href="routes/sign-up.php"><h5> <i class="fa fa-book"></i> Register</h5></a>
+                        <a href="routes/sign-up.php"><h5> <i class="fa fa-book"></i> Register</h5></a> 
                     </div>
+                    
                 <?php
                 }
                 
             ?>
-             <div class="col-md-6">
+            <br>
+            
+            <div class="col-md-6">
                 <!-- Search Bar -->
                 <input type="text" id="searchInput" class="form-control mb-2" placeholder="Search laptops...">
                 <button id="searchButton" class="btn btn-primary">Search</button>
                 <a href="index.php" class="btn btn-secondary">Clear Search</a>
 
+            
             </div>
 
                 <div class="row">
                 <!-- Filter Section -->
                     <div class="col-md-2" id="filterSection">
+
+                    <h4>Filter by Brand:</h4>
+                    <?php foreach ($uniqueBrands as $brand): ?>
+                        <label><input type="checkbox" class="filter" value="brand<?php echo $brand; ?>"> <?php echo $brand; ?> </label><br>
+                    <?php endforeach; ?>
+
                     <h4>Filter by RAM:</h4>
                     <?php foreach ($uniqueRAMs as $ram): ?>
                         <label><input type="checkbox" class="filter" value="ram<?php echo $ram; ?>"> <?php echo $ram; ?> RAM</label><br>
@@ -236,6 +247,7 @@
                 url: 'api/search.php', // Ensure this points to the correct location of your search.php file
                 data: { query: searchQuery },
                 success: function (data) {
+                   
                     $('#bodySection').html(data);
                 }
             });
