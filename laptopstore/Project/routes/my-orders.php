@@ -104,7 +104,8 @@
                                         <b>Display: </b> <br><?php echo $orders[$i]['display'] ?> <br>
                                         <b>Order date: </b> <br><?php echo $orders[$i]['date'] ?> <br><br>
                                         <h3><span class="badge badge-success p-2">Ordered</span></h3> 
-                                        <button class="btn btn-danger delete-order" data-orderid="<?php echo $order['id']; ?>">Delete Order</button>
+                                        <button class="btn btn-danger delete-order" data-orderid="<?php echo $orders[$i]['id']; ?>">Delete Order</button>
+
                                         
                                     </div>
                                 </div>
