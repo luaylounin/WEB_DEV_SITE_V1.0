@@ -254,19 +254,21 @@
         }
     });
     $('#applyFilters').click(function () {
-            var selectedFilters = $('.filter:checked').map(function() {
-                return this.value;
-            }).get();
-            
-            $.ajax({
-                type: 'POST',
-                url: 'api/filter.php', // Ensure this points to the correct location of your filter.php file
-                data: { filters: selectedFilters },
-                success: function(response) {
-                    $('#bodySection').html(response);
-                }
-            });
+    var searchQuery = $('#searchInput').val();
+    var selectedFilters = $('.filter:checked').map(function() {
+        return this.value;
+    }).get();
+    
+    $.ajax({
+        type: 'POST',
+        url: 'api/filter.php',
+        data: { query: searchQuery, filters: selectedFilters },
+        success: function(response) {
+            $('#bodySection').html(response);
+        }
     });
+});
+
 
 </script>
 

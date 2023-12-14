@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 // Database connection
 $connection = mysqli_connect('localhost', 'root', '', 'laptop-store') or die('Connection error');
 
@@ -15,34 +14,22 @@ $brandFilters = [];
 $ramFilters = [];
 $storageFilters = [];
 
-
 foreach ($filters as $filter) {
     if (strpos($filter, 'brand') !== false) {
         $brandFilters[] = str_replace('brand', '', $filter);
-    } else if (strpos($filter, 'storage') !== false) {
-        $storageFilters[] = str_replace('storage', '', $filter);
-    } else if (strpos($filter, 'ram') !== false) {
+    } elseif (strpos($filter, 'ram') !== false) {
         $ramFilters[] = str_replace('ram', '', $filter);
+    } elseif (strpos($filter, 'storage') !== false) {
+        $storageFilters[] = str_replace('storage', '', $filter);
     }
 }
-$brandQueryPart = '';
-$ramQueryPart = '';
-$storageQueryPart = '';
 
+$brandQueryPart = !empty($brandFilters) ? " AND brand IN ('" . implode("','", $brandFilters) . "')" : '';
+$ramQueryPart = !empty($ramFilters) ? " AND ram IN ('" . implode("','", $ramFilters) . "')" : '';
+$storageQueryPart = !empty($storageFilters) ? " AND storage IN ('" . implode("','", $storageFilters) . "')" : '';
 
-if (!empty($brandFilters)) {
-    $brandQueryPart = " AND brand IN ('" . implode("','", $brandFilters) . "')";
-}
+$query = "SELECT * FROM laptops WHERE (name LIKE '%$searchQuery%' OR processor LIKE '%$searchQuery%' OR ram LIKE '%$searchQuery%' OR display LIKE '%$searchQuery%')" . $brandQueryPart . $ramQueryPart . $storageQueryPart;
 
-if (!empty($storageFilters)) {
-    $storageQueryPart = " AND storage IN ('" . implode("','", $storageFilters) . "')";
-}
-
-if (!empty($ramFilters)) {
-    $ramQueryPart = " AND ram IN ('" . implode("','", $ramFilters) . "')";
-}
-
-$query = "SELECT * FROM laptops WHERE name LIKE '%$searchQuery%' " . $brandQueryPart. $storageQueryPart . $ramQueryPart  ;
 $result = mysqli_query($connection, $query);
 
 $laptops = [];
