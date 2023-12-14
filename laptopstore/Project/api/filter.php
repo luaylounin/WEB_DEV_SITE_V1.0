@@ -48,13 +48,15 @@ if ($result) {
     $laptops = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_free_result($result);
 }
-
-foreach ($laptops as $laptop) {
-    echo '<div id="headerSection">';
+echo '<div id="bodysection">';
     echo '<div class="container" >';
+    echo'<div class="row align-items-center">';
+    echo'<div class="row mt-4">';
+foreach ($laptops as $laptop) {
     
-        echo'<div class="row align-items-center">';
-            echo'<div class="row mt-4">';
+    
+        
+            
                 echo '<div class="col-md-4 mb-4">';
                     echo '<div class="card">';
                         echo '<img src="' . htmlspecialchars($laptop['image_url']) . '" class="card-img-top" alt="' . htmlspecialchars($laptop['name']) . '">';
@@ -74,6 +76,7 @@ foreach ($laptops as $laptop) {
             } echo '</div>';
         echo '</div>';
     echo '</div>';
-
+    echo '</div>';
+    echo '</div>';
 mysqli_close($connection);
 ?>
