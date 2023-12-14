@@ -106,7 +106,7 @@ CREATE TABLE `user_detail` (
 INSERT INTO `user_detail` (`id`, `name`, `mobile`, `email`, `address`, `password`) VALUES
 (11, 'luay', '12345678', 'luay@mail.com', 'hello', '123456'),
 (12, 'luuuay', '12344555', 'sample@mail.com', '1212hello', 'hello'),
-(13, 'luay merei', '12367778', 'luay.merei@gml.com', 'byebye', 'hellohello');
+
 
 --
 -- Indexes for dumped tables
