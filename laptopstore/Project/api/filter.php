@@ -50,25 +50,29 @@ if ($result) {
 }
 
 foreach ($laptops as $laptop) {
-    echo'<div class="row align-items-center">';
-    echo'<div class="row mt-4">';
-    echo '<div class="col-md-4 mb-4">';
-        echo '<div class="card">';
-            echo '<img src="' . htmlspecialchars($laptop['image_url']) . '" class="card-img-top" alt="' . htmlspecialchars($laptop['name']) . '">';
-            echo '<div class="card-body">';
-                echo '<h5 class="card-title">' . htmlspecialchars($laptop['name']) . '</h5>';
-                echo '<p class="card-text">';
-                    echo htmlspecialchars($laptop['brand']) . '<br>';
-                    echo htmlspecialchars($laptop['processor']) . '<br>';
-                    echo htmlspecialchars($laptop['ram']) . '<br>';
-                    echo htmlspecialchars($laptop['storage']) . '<br>';
-                    echo htmlspecialchars($laptop['display']);
-                echo '</p>';
-                echo '<a href="routes/' . htmlspecialchars($laptop['route']) . '.php" class="btn btn-primary">Full details</a>';
-            echo '</div>';
+    echo '<div id="headerSection">';
+    echo '<div class="container" >';
+    
+        echo'<div class="row align-items-center">';
+            echo'<div class="row mt-4">';
+                echo '<div class="col-md-4 mb-4">';
+                    echo '<div class="card">';
+                        echo '<img src="' . htmlspecialchars($laptop['image_url']) . '" class="card-img-top" alt="' . htmlspecialchars($laptop['name']) . '">';
+                        echo '<div class="card-body">';
+                            echo '<h5 class="card-title">' . htmlspecialchars($laptop['name']) . '</h5>';
+                            echo '<p class="card-text">';
+                                echo htmlspecialchars($laptop['brand']) . '<br>';
+                                echo htmlspecialchars($laptop['processor']) . '<br>';
+                                echo htmlspecialchars($laptop['ram']) . '<br>';
+                                echo htmlspecialchars($laptop['storage']) . '<br>';
+                                echo htmlspecialchars($laptop['display']);
+                            echo '</p>';
+                            echo '<a href="routes/' . htmlspecialchars($laptop['route']) . '.php" class="btn btn-primary">Full details</a>';
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+            } echo '</div>';
         echo '</div>';
-    echo '</div>';
-}   echo '</div>';
     echo '</div>';
 
 mysqli_close($connection);
