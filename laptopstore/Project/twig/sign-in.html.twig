@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login - Tech Topia{% endblock %}
+
+{% block content %}
+<div class="row p-3">
+  <div class="col-md-1"></div>
+  <div class="col-md-11">
+    <div class="row">
+      <div class="col-md-4">
+        <center><h3>Login</h3></center>
+        <br>
+        <form action="../api/login.php" method="POST"> 
+          <input class="form-control" type="text" name="id" placeholder="Enter Email / Mobile" required>
+          <br>
+          <input class="form-control" type="password" name="password" placeholder="Enter Password" required>
+          <br>
+          <center>
+            <button type="submit" name="login" class="form-control btn btn-primary">Login</button>
+          </center>
+          <br>
+        </form>
+      </div>
+      <div class="col-md-8">
+        <img src="../uploads/laptops.jpeg" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+{% endblock %}
