@@ -47,7 +47,7 @@ if ($executed) {
     if (mysqli_stmt_affected_rows($stmt) > 0) {
         echo 'Order Deleted Successfully';
     } else {
-        echo '<script>alert("No order found or you do not have permission to delete this order."); window.location.href="../myorders.php";</script>';
+        echo '<No order found or you do not have permission to delete this order';
     }
 } else {
     echo '<script>alert("Error deleting order: ' . addslashes(htmlspecialchars(mysqli_stmt_error($stmt))) . '"); window.location.href="../myorders.php";</script>';

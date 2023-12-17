@@ -69,7 +69,7 @@
     </div>
 </div>
 <hr>
-<div id="bodySection">
+<div id="headersection">
 
         <div class="row p-3">
 
@@ -126,7 +126,9 @@
             </div>
 
             <div class="col-md-1"></div>
-
+            <div class="text-center">
+            
+          </div>
         </div>
         <script>
 $(document).ready(function() {

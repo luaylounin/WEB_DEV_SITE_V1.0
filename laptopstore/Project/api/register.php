@@ -25,7 +25,7 @@ if(isset($_POST['register'])){
     // Decode the JSON response
     $result = json_decode($response, true);
 
-    if ($result && $result['format_valid'] && $result['smtp_check']) {
+   // if ($result && $result['format_valid'] && $result['smtp_check']) {
         // Email is valid and exists
         // Proceed with user registration if password matches
         if($password == $cpassword){
@@ -56,5 +56,5 @@ if(isset($_POST['register'])){
                 window.location='../routes/sign-up.php';
              </script>";
     }
-}
+//}
 ?>

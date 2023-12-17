@@ -1,4 +1,5 @@
 <?php
+    require_once 'C:/Users/luayl/vendor/autoload.php';
     session_start();
 
     // Database connection
@@ -70,10 +71,16 @@
   <link rel="stylesheet" href="resources/Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/stylesheet.css">
-    <script src="resources/Bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="resources/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+
+    
+
     <script>
-        <script>
+        
     $(document).ready(function () {
         $('#searchButton').click(function () {
             searchLaptops();
@@ -130,6 +137,7 @@
                     <div class="col-md-2">
                         <a href="routes/logout.php"><h5> <i class="fa fa-user"></i> Logout</h5></a>
                     </div>
+                    
                 <?php
                 }
                 else{
@@ -224,6 +232,7 @@
         </div>
         
 </div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="resources/Bootstrap/js/bootstrap.min.js"></script>
 <script>
@@ -272,7 +281,26 @@
 
 </script>
 
-
+<script>
+    $(document).ready(function () {
+        $("#searchInput").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/api/autocomplete.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2 // Set the minimum length for autocomplete
+        });
+    });
+</script>
 
 </body>
 
